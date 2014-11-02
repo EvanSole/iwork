@@ -5,15 +5,15 @@ import java.util.Date;
 public class User {
 
 	private Long usesId;
-	
+
 	private String userName;
-	
+
 	private String email;
-	
+
 	private String password;
-	
+
 	private Date registerDate;
-	
+
 	private Date lastLoginDate;
 
 	public Long getUsesId() {
@@ -63,5 +63,5 @@ public class User {
 	public void setLastLoginDate(Date lastLoginDate) {
 		this.lastLoginDate = lastLoginDate;
 	}
-	
+
 }

@@ -12,7 +12,7 @@
 
 	
 	
-	<!-- 对静态资源文件的访问  方案一，下面为方案二 （二选一） -->  
+	<!-- 对静态资源文件的访问  -->  
     <mvc:default-servlet-handler/>
     <!-- 静态资源映射 -->
     <mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
@@ -21,8 +21,7 @@
 	
 	
 	 <!-- 视图解释类 -->  
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>
 				<entry key="html" value="text/html" />
@@ -32,8 +31,7 @@
 		</property>
 		<property name="viewResolvers">
 			<list>
-				<bean
-					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 					<property name="prefix" value="/" />
 					<property name="suffix" value=".jsp" />
 				</bean>
