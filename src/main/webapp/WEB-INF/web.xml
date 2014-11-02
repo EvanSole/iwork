@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <web-app>
-	
-  <display-name>inwork</display-name>
-  
-    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+
+	<display-name>iwork</display-name>
+
+	<!-- The definition of the Root Spring Container shared by all Servlets 
+		and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:spring/applicationContext*.xml</param-value>
 	</context-param>
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-   
-    <!-- Handles all requests into the application -->
+
+
+	<!-- Handles all requests into the application -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	    <init-param>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath*:spring/applicationContext-mvc.xml</param-value>
+			<param-value>classpath*:spring/applicationContext-mvc.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -29,11 +29,16 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<!-- Reads request input using UTF-8 encoding -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -48,32 +53,27 @@
 		<filter-name>characterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-   
-   
-   <!-- The filter-name matches name of a 'shiroFilter' bean inside applicationContext.xml -->
-	<!-- <filter>
-		<filter-name>shiroFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-		<init-param>
-			<param-name>targetFilterLifecycle</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</filter> -->
 
-	<!-- Make sure any request you want accessible to Shiro is filtered. catches all -->
-	<!-- requests. Usually this filter mapping is defined first (before all	others) to -->
+
+	<!-- The filter-name matches name of a 'shiroFilter' bean inside applicationContext.xml -->
+	<!-- <filter> <filter-name>shiroFilter</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
+		<init-param> <param-name>targetFilterLifecycle</param-name> <param-value>true</param-value> 
+		</init-param> </filter> -->
+
+	<!-- Make sure any request you want accessible to Shiro is filtered. catches 
+		all -->
+	<!-- requests. Usually this filter mapping is defined first (before all 
+		others) to -->
 	<!-- ensure that Shiro works in subsequent filters in the filter chain: -->
-	<!-- <filter-mapping>
-		<filter-name>shiroFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping> -->
+	<!-- <filter-mapping> <filter-name>shiroFilter</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping> -->
 
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-	
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-  
+
 </web-app>

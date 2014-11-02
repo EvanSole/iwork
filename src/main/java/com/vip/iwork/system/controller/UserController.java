@@ -1,7 +1,6 @@
 package com.vip.iwork.system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +25,7 @@ public class UserController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String findUserById(@PathVariable long id) {
 		User user = userService.findUserById(id);
-		return null;
+		System.out.println(userService+"----------");
+		return "user/userlist";
 	}
 }
